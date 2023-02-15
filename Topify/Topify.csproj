@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Lib\Debug\Img\AlbumCanvas.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Lib\Debug\Img\AlbumCanvas.png" />
+  </ItemGroup>
+
 </Project>
