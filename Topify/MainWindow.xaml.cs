@@ -58,5 +58,10 @@ namespace Topify
                                                          DWMWINDOWATTRIBUTE attribute,
                                                          ref DWM_WINDOW_CORNER_PREFERENCE pvAttribute,
                                                          uint cbAttribute);
+
+        private void DragContainer_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
+        }
     }
 }
