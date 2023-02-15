@@ -6,7 +6,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="72" Width="360" WindowStyle="None" AllowsTransparency="True">
     <Grid Background="#b8548a">
-        <Border CornerRadius="8" BorderThickness="1" HorizontalAlignment="Left" Height="58" Margin="7,0,0,0" VerticalAlignment="Center" Width="58">
+        <Border CornerRadius="7" BorderThickness="1" HorizontalAlignment="Left" Height="58" Margin="7,0,0,0" VerticalAlignment="Center" Width="58">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="0" RenderingBias="Quality" ShadowDepth="0" Opacity="0.3"/>
+            </Border.Effect>
             <Border.Background>
                 <ImageBrush ImageSource="/Lib/Debug/Img/AlbumCanvas.png"/>
             </Border.Background>
