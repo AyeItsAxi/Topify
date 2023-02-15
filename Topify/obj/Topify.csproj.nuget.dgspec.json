@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shawn\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj": {}
+    "C:\\Users\\shawn\\OneDrive\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shawn\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj": {
+    "C:\\Users\\shawn\\OneDrive\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shawn\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj",
+        "projectUniqueName": "C:\\Users\\shawn\\OneDrive\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj",
         "projectName": "Topify",
-        "projectPath": "C:\\Users\\shawn\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj",
+        "projectPath": "C:\\Users\\shawn\\OneDrive\\Documents\\Visual Studio Projects\\Topify\\Topify\\Topify.csproj",
         "packagesPath": "C:\\Users\\shawn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shawn\\Documents\\Visual Studio Projects\\Topify\\Topify\\obj\\",
+        "outputPath": "C:\\Users\\shawn\\OneDrive\\Documents\\Visual Studio Projects\\Topify\\Topify\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\shawn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows"
@@ -63,7 +65,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
