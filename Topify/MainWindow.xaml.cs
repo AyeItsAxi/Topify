@@ -33,6 +33,7 @@ namespace Topify
             var attribute = DWMWINDOWATTRIBUTE.DWMWA_WINDOW_CORNER_PREFERENCE;
             var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
             DwmSetWindowAttribute(hWnd, attribute, ref preference, sizeof(uint));
+            DragContainer.Visibility = Visibility.Visible;
         }
         // The enum flag for DwmSetWindowAttribute's second parameter, which tells the function what attribute to set.
         // Copied from dwmapi.h
