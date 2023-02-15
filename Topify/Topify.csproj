@@ -9,10 +9,22 @@
 
   <ItemGroup>
     <None Remove="Lib\Debug\Img\AlbumCanvas.png" />
+    <None Remove="Lib\Fonts\Black\Gotham-Black.otf" />
+    <None Remove="Lib\Fonts\Bold\Gotham-Bold.otf" />
+    <None Remove="Lib\Fonts\Light\Gotham-Light.otf" />
+    <None Remove="Lib\Fonts\Medium\GothamMedium.otf" />
+    <None Remove="Lib\Fonts\Thin\Gotham-Thin.otf" />
+    <None Remove="Lib\Fonts\XLight\Gotham-XLight.otf" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Lib\Debug\Img\AlbumCanvas.png" />
+    <Resource Include="Lib\Fonts\Black\Gotham-Black.otf" />
+    <Resource Include="Lib\Fonts\Bold\Gotham-Bold.otf" />
+    <Resource Include="Lib\Fonts\Light\Gotham-Light.otf" />
+    <Resource Include="Lib\Fonts\Medium\GothamMedium.otf" />
+    <Resource Include="Lib\Fonts\Thin\Gotham-Thin.otf" />
+    <Resource Include="Lib\Fonts\XLight\Gotham-XLight.otf" />
   </ItemGroup>
 
 </Project>
