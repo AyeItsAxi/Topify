@@ -14,6 +14,6 @@
                 <ImageBrush ImageSource="/Lib/Debug/Img/AlbumCanvas.png"/>
             </Border.Background>
         </Border>
-        <Border Name="DragContainer" BorderBrush="Transparent" MouseDown="DragContainer_MouseDown" BorderThickness="1"/>
+        <Border Name="DragContainer" BorderBrush="Transparent" MouseDown="DragContainer_MouseDown" BorderThickness="1" Visibility="Hidden"/>
     </Grid>
 </Window>
