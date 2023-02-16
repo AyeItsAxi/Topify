@@ -62,7 +62,10 @@ namespace Topify
 
         private void DragContainer_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed) { DragMove(); }
+            if (e.MouseDevice.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }

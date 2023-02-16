@@ -8,9 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Lib\Fonts\Circular\Bold\**" />
+    <Compile Remove="Lib\Fonts\Circular\Book\**" />
+    <Compile Remove="Lib\Fonts\Circular\Title\**" />
+    <EmbeddedResource Remove="Lib\Fonts\Circular\Bold\**" />
+    <EmbeddedResource Remove="Lib\Fonts\Circular\Book\**" />
+    <EmbeddedResource Remove="Lib\Fonts\Circular\Title\**" />
+    <None Remove="Lib\Fonts\Circular\Bold\**" />
+    <None Remove="Lib\Fonts\Circular\Book\**" />
+    <None Remove="Lib\Fonts\Circular\Title\**" />
+    <Page Remove="Lib\Fonts\Circular\Bold\**" />
+    <Page Remove="Lib\Fonts\Circular\Book\**" />
+    <Page Remove="Lib\Fonts\Circular\Title\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Lib\Debug\Img\AlbumCanvas.png" />
     <None Remove="Lib\Fonts\Black\Gotham-Black.otf" />
     <None Remove="Lib\Fonts\Bold\Gotham-Bold.otf" />
+    <None Remove="Lib\Fonts\Circular\CircularStd-Black.otf" />
+    <None Remove="Lib\Fonts\Circular\CircularStd-Bold.otf" />
+    <None Remove="Lib\Fonts\Circular\CircularStd-Book.otf" />
+    <None Remove="Lib\Fonts\Circular\CircularStd-Medium.otf" />
     <None Remove="Lib\Fonts\Light\Gotham-Light.otf" />
     <None Remove="Lib\Fonts\Medium\GothamMedium.otf" />
     <None Remove="Lib\Fonts\Thin\Gotham-Thin.otf" />
@@ -21,6 +40,10 @@
     <Resource Include="Lib\Debug\Img\AlbumCanvas.png" />
     <Resource Include="Lib\Fonts\Black\Gotham-Black.otf" />
     <Resource Include="Lib\Fonts\Bold\Gotham-Bold.otf" />
+    <Resource Include="Lib\Fonts\Circular\CircularStd-Black.otf" />
+    <Resource Include="Lib\Fonts\Circular\CircularStd-Bold.otf" />
+    <Resource Include="Lib\Fonts\Circular\CircularStd-Book.otf" />
+    <Resource Include="Lib\Fonts\Circular\CircularStd-Medium.otf" />
     <Resource Include="Lib\Fonts\Light\Gotham-Light.otf" />
     <Resource Include="Lib\Fonts\Medium\GothamMedium.otf" />
     <Resource Include="Lib\Fonts\Thin\Gotham-Thin.otf" />
