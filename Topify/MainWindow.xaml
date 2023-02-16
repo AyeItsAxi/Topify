@@ -17,7 +17,7 @@
         </Border>
         <Label x:Name="NowPlayingName" Content="In a Dream" Foreground="White" HorizontalAlignment="Left" Height="26" Margin="74,10,0,0" FontFamily="/Lib/Fonts/Black/#Gotham" FontSize="14" VerticalAlignment="Top" Width="280"/>
         <Label x:Name="NowPlayingArtist" Content="Jaron" Foreground="#e8c8da" HorizontalAlignment="Left" Height="26" Margin="74,27,0,0" FontFamily="/Lib/Fonts/Circular/#Circular Std Medium" FontWeight="Bold" FontSize="10" VerticalAlignment="Top" Width="280"/>
-        <SVG:SvgViewbox x:Name="Spoticon" Opacity="0.7" Source="/Lib/Img/Spotify.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="9, 0" Width="15" Height="15"/>
+        <!--<SVG:SvgViewbox x:Name="Spoticon" Opacity="0.7" Source="/Lib/Img/Spotify.svg" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="9, 0" Width="15" Height="15"/>-->
         <Border Name="DragContainer" BorderBrush="Transparent" MouseDown="DragContainer_MouseDown" BorderThickness="100" Visibility="Hidden"/>
     </Grid>
 </Window>
