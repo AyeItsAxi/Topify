@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Topify.Common;
 
 namespace Topify
 {
@@ -34,6 +35,7 @@ namespace Topify
             var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
             DwmSetWindowAttribute(hWnd, attribute, ref preference, sizeof(uint));
             DragContainer.Visibility = Visibility.Visible;
+            
         }
         // The enum flag for DwmSetWindowAttribute's second parameter, which tells the function what attribute to set.
         // Copied from dwmapi.h
@@ -66,6 +68,25 @@ namespace Topify
             {
                 DragMove();
             }
+        }
+
+        private void PreviousSong_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SkipBackGeometry.Brush = Brushes.White;
+            AnimationHandler.FadeAnimation(SkipBackDrawingImage, 0.2, SkipBackDrawingImage.Opacity, 1);
+        }
+
+        private async void PreviousSong_MouseLeave(object sender, MouseEventArgs e)
+        {
+            
+            AnimationHandler.FadeAnimation(SkipBackDrawingImage, 0.2, SkipBackDrawingImage.Opacity, 0.3);
+            await Task.Delay(225);
+            SkipBackGeometry.Brush = Brushes.Black;
+        }
+
+        private void PreviousSong_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Hi");
         }
     }
 }

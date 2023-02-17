@@ -34,6 +34,16 @@
     <None Remove="Lib\Fonts\Medium\GothamMedium.otf" />
     <None Remove="Lib\Fonts\Thin\Gotham-Thin.otf" />
     <None Remove="Lib\Fonts\XLight\Gotham-XLight.otf" />
+    <None Remove="Lib\Img\PauseButton.svg" />
+    <None Remove="Lib\Img\PlayButton.svg" />
+    <None Remove="Lib\Img\SkipForward.svg" />
+    <None Remove="Lib\Img\SkipPrevious.svg" />
+    <None Remove="Lib\Img\Spotify.png" />
+    <None Remove="Lib\Img\Spotify.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpVectors" Version="1.8.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +58,12 @@
     <Resource Include="Lib\Fonts\Medium\GothamMedium.otf" />
     <Resource Include="Lib\Fonts\Thin\Gotham-Thin.otf" />
     <Resource Include="Lib\Fonts\XLight\Gotham-XLight.otf" />
+    <Resource Include="Lib\Img\PauseButton.svg" />
+    <Resource Include="Lib\Img\PlayButton.svg" />
+    <Resource Include="Lib\Img\SkipForward.svg" />
+    <Resource Include="Lib\Img\SkipPrevious.svg" />
+    <Resource Include="Lib\Img\Spotify.png" />
+    <Resource Include="Lib\Img\Spotify.svg" />
   </ItemGroup>
 
 </Project>
