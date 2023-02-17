@@ -15,6 +15,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Topify.Common;
+using SpotifyAPI;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
+using Newtonsoft.Json;
+using static SpotifyAPI.Web.Scopes;
 
 namespace Topify
 {
@@ -23,6 +28,10 @@ namespace Topify
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SpotifyClient? spClient;
+        private static readonly EmbedIOAuthServer _server = new EmbedIOAuthServer(new Uri("http://localhost:5000/callback"), 5000);
+        private static readonly string clientId = "2aa7adaf3dd745d2a5da9ebb12588afe";
+        private static readonly string clientSecret = "29588318688e4e838fd0950267d2cbd8";
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +44,75 @@ namespace Topify
             var preference = DWM_WINDOW_CORNER_PREFERENCE.DWMWCP_ROUND;
             DwmSetWindowAttribute(hWnd, attribute, ref preference, sizeof(uint));
             DragContainer.Visibility = Visibility.Visible;
-            
+            GetClientOuath();
+        }
+        public async void GetClientOuath()
+        {
+            /*var config = SpotifyClientConfig.CreateDefault();
+            var request = new ClientCredentialsRequest("2aa7adaf3dd745d2a5da9ebb12588afe", "29588318688e4e838fd0950267d2cbd8");
+            var response = await new OAuthClient(config).RequestToken(request);
+            spClient = new SpotifyClient(config.WithToken(response.AccessToken));
+            var loginRequest = new LoginRequest(
+                new Uri("http://localhost:5000"),
+                "2aa7adaf3dd745d2a5da9ebb12588afe",
+                LoginRequest.ResponseType.Code
+            )
+            {
+                Scope = new[] { Scopes.UserModifyPlaybackState, Scopes.UserReadCurrentlyPlaying, Scopes.UserReadPlaybackPosition, Scopes.UserReadPlaybackState }
+            };*/
+            await StartAuthentication();
+        }
+        private static string? json;
+        private static async Task StartAuthentication()
+        {
+            var (verifier, challenge) = PKCEUtil.GenerateCodes();
+
+            await _server.Start();
+            _server.AuthorizationCodeReceived += async (sender, response) =>
+            {
+                await _server.Stop();
+                PKCETokenResponse token = await new OAuthClient().RequestToken(
+                  new PKCETokenRequest("2aa7adaf3dd745d2a5da9ebb12588afe", response.Code, _server.BaseUri, verifier)
+                );
+
+                json = JsonConvert.SerializeObject(token);
+                await Start();
+            };
+
+            var request = new LoginRequest(_server.BaseUri, "2aa7adaf3dd745d2a5da9ebb12588afe", LoginRequest.ResponseType.Code)
+            {
+                CodeChallenge = challenge,
+                CodeChallengeMethod = "S256",
+                Scope = new List<string> { UserReadEmail, UserReadPrivate, PlaylistReadPrivate, PlaylistReadCollaborative }
+            };
+
+            Uri uri = request.ToUri();
+            try
+            {
+                BrowserUtil.Open(uri);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unable to open URL, manually open: {0}", uri);
+            }
+        }
+        private static async Task Start()
+        {
+            var _token = JsonConvert.DeserializeObject<PKCETokenResponse>(json!);
+            var authenticator = new PKCEAuthenticator("2aa7adaf3dd745d2a5da9ebb12588afe", _token!);
+            authenticator.TokenRefreshed += (sender, token) => token = _token!;
+            var config = SpotifyClientConfig.CreateDefault()
+        .WithAuthenticator(authenticator);
+
+            var spotify = new SpotifyClient(config);
+
+            var me = await spotify.UserProfile.Current();
+            MessageBox.Show($"Welcome {me.DisplayName} ({me.Id}), you're authenticated!");
+
+            var playlists = await spotify.PaginateAll(await spotify.Playlists.CurrentUsers().ConfigureAwait(false));
+            MessageBox.Show($"Total Playlists in your Account: {playlists.Count}");
+
+            _server.Dispose();
         }
         // The enum flag for DwmSetWindowAttribute's second parameter, which tells the function what attribute to set.
         // Copied from dwmapi.h
@@ -101,9 +178,11 @@ namespace Topify
             SkipForwardGeometry.Brush = Brushes.Black;
         }
 
-        private void NextSong_MouseUp(object sender, MouseButtonEventArgs e)
+        private async void NextSong_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Forward");
+            await spClient!.Player.SkipNext();
+            var pb = await spClient.Player.GetCurrentPlayback();
+            MessageBox.Show(pb.IsPlaying.ToString());
         }
     }
 }
