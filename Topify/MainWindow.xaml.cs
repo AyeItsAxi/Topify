@@ -78,7 +78,6 @@ namespace Topify
 
         private async void PreviousSong_MouseLeave(object sender, MouseEventArgs e)
         {
-            
             AnimationHandler.FadeAnimation(SkipBackDrawingImage, 0.2, SkipBackDrawingImage.Opacity, 0.3);
             await Task.Delay(225);
             SkipBackGeometry.Brush = Brushes.Black;
@@ -86,7 +85,25 @@ namespace Topify
 
         private void PreviousSong_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Hi");
+            MessageBox.Show("Back");
+        }
+
+        private void NextSong_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SkipForwardGeometry.Brush = Brushes.White;
+            AnimationHandler.FadeAnimation(SkipForwardDrawingImage, 0.2, SkipForwardDrawingImage.Opacity, 1);
+        }
+
+        private async void NextSong_MouseLeave(object sender, MouseEventArgs e)
+        {
+            AnimationHandler.FadeAnimation(SkipForwardDrawingImage, 0.2, SkipForwardDrawingImage.Opacity, 0.3);
+            await Task.Delay(225);
+            SkipForwardGeometry.Brush = Brushes.Black;
+        }
+
+        private void NextSong_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Forward");
         }
     }
 }
