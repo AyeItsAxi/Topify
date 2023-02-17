@@ -30,8 +30,6 @@ namespace Topify
     {
         private SpotifyClient? spClient;
         private static readonly EmbedIOAuthServer _server = new EmbedIOAuthServer(new Uri("http://localhost:5000/callback"), 5000);
-        private static readonly string clientId = "2aa7adaf3dd745d2a5da9ebb12588afe";
-        private static readonly string clientSecret = "29588318688e4e838fd0950267d2cbd8";
         public MainWindow()
         {
             InitializeComponent();
@@ -48,18 +46,6 @@ namespace Topify
         }
         public async void GetClientOuath()
         {
-            /*var config = SpotifyClientConfig.CreateDefault();
-            var request = new ClientCredentialsRequest("2aa7adaf3dd745d2a5da9ebb12588afe", "29588318688e4e838fd0950267d2cbd8");
-            var response = await new OAuthClient(config).RequestToken(request);
-            spClient = new SpotifyClient(config.WithToken(response.AccessToken));
-            var loginRequest = new LoginRequest(
-                new Uri("http://localhost:5000"),
-                "2aa7adaf3dd745d2a5da9ebb12588afe",
-                LoginRequest.ResponseType.Code
-            )
-            {
-                Scope = new[] { Scopes.UserModifyPlaybackState, Scopes.UserReadCurrentlyPlaying, Scopes.UserReadPlaybackPosition, Scopes.UserReadPlaybackState }
-            };*/
             await StartAuthentication();
         }
         private static string? json;
